@@ -1,7 +1,7 @@
 
 ## Cordova Plugin that wraps Mixpanel sdk for android and ios
 
-- [Android SDK version 5.9.1](https://github.com/mixpanel/mixpanel-android/tree/v5.9.1)
+- [Android SDK version 6.3.0](https://github.com/mixpanel/mixpanel-android/tree/v6.3.0)
 - [iOS SDK version 3.9.0](https://github.com/mixpanel/mixpanel-iphone/tree/v3.9.0)
 
 *NOTE: this version currenty doesn't support apple watch due to some deprecation of watchkit in xcode 11. use the latest 4.6.x release if you need apple watch support*
@@ -15,7 +15,7 @@ Requires Cordova > 5.x.x
   cordova plugin add cordova-plugin-mixpanel
 ```
 
-*Optional Preferences*: 
+*Optional Preferences*:
 
 - `PLAY_SERVICES_VERSION`: default value `+`
 - `FIREBASE_VERSION`: default value `+`
@@ -69,20 +69,6 @@ You can read more about mixpanel api in their reference: https://mixpanel.com/he
 - append(appendObject, onSuccess, onFail)
 - deleteUser(onSuccess, onFail)
 - increment(peopleProperties, onSuccess, onFail)
-- setPushId(pushId, onSuccess, onFail)
-  - use to manually send a push notifications token to mixpanel
-    - [android](http://mixpanel.github.io/mixpanel-android/com/mixpanel/android/mpmetrics/MixpanelAPI.People.html#setPushRegistrationId-java.lang.String)
-    - [ios](https://mixpanel.com/help/reference/ios-push-notifications)
-  - Usage example using the [PhoneGap Push Plugin](https://github.com/phonegap/phonegap-plugin-push):
-  ```
-    var push = PushNotification.init({
-        'android': {},
-        'ios': {'alert': 'true', 'badge': 'true', 'sound': 'true'}
-    });
-    push.on('registration', function(data) {
-      mixpanel.people.setPushId(data.registrationId, function onSuccess(){}, function onFail(){});
-    });
-  ```
 - set(peopleProperties, onSuccess, onFail)
 - setOnce(peopleProperties, onSuccess, onFail)
 - trackCharge(amount, chargeProperties, onSuccess, onFail)
@@ -160,12 +146,12 @@ You can install this through the android sdk under extras category.<br/>
 FYI this plugin registers a dependency on ANY version of play services so it doesnt conflict with other plugins in any way.
 
 
-#### Firebase error: No virtual method getInstanceId() 
+#### Firebase error: No virtual method getInstanceId()
 
 If your'e getting some sort of error like this:
 
 ```
-java.lang.NoSuchMethodError: No virtual method getInstanceId()Lcom/google/android/gms/tasks/Task; 
+java.lang.NoSuchMethodError: No virtual method getInstanceId()Lcom/google/android/gms/tasks/Task;
 in class Lcom/google/firebase/iid/FirebaseInstanceId
 ```
 
