@@ -4,7 +4,7 @@
 # set -e
 set -v
 
-VERSION="3.9.0"
+VERSION="4.2.0"
 ZIPFILE="v$VERSION.zip"
 pwd=$(pwd)
 echo $pwd
@@ -18,12 +18,13 @@ curl -Ls https://github.com/mixpanel/mixpanel-iphone/archive/$ZIPFILE -O $ZIPFIL
 unzip $ZIPFILE
 rm -f $ZIPFILE
 mv Mixpanel Mixpanel_bak
-mv mixpanel-iphone-$VERSION/Mixpanel .
+mkdir Mixpanel
+mv mixpanel-iphone-$VERSION/Sources/* Mixpanel
 mv Mixpanel_bak/LICENSE Mixpanel/
 rm -rf mixpanel-iphone-$VERSION
 
-# next steps: git add Mixpanel dir. 
+# next steps: git add Mixpanel dir.
 # if any files are newely added or deleted then run "assetsHelper.js" and copy the output to plugin.xml as needed
 
 # cd ../../
-# git apply src/ios/ios_wathckit_removal.patch 
+# git apply src/ios/ios_wathckit_removal.patch
