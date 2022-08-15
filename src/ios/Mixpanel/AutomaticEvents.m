@@ -31,7 +31,7 @@
         defaults = [[NSUserDefaults alloc] initWithSuiteName:@"Mixpanel"];
         sessionLength = 0;
         sessionStartTime = [[NSDate date] timeIntervalSince1970];
-        self.minimumSessionDuration = 10000;
+        self.minimumSessionDuration = 1000;
         self.maximumSessionDuration = UINT64_MAX;
     }
     return self;
